@@ -20,7 +20,6 @@ const data = {
     "ServerEphemeral": '', // base64 encoded server ephemeral
     "Version": 4,
     "Salt": '', // base64 encoded salt
-    "SRPSession": '', // hex encoded session key
     "Username": '' // username
 }
 ```
@@ -29,8 +28,7 @@ const data = {
 ```js
 const credentials = {
     username: 'foo', // entered username
-    password: 'bar', // entered password
-    totp: '123456' // entered two factor code if needed
+    password: 'bar' // entered password
 }
 ```
 
@@ -39,17 +37,13 @@ if an optional `authVersion` is specified, it will override whatever version is 
 it returns a `Promise` resolving to a `result` containing:
 ```js
 {
-    parameters: {
-        SRPSession, // same srp session
-        ClientEphemeral: '', //  base64 encoded client ephmeral
-        ClientProof: '', // base64 encoded client proof
-        TwoFactorCode: '' // same two factor code if specified
-    },
-    expectation: '' // base64 encoded expected server proof
+    ClientEphemeral: '', //  base64 encoded client ephmeral
+    ClientProof: '', // base64 encoded client proof
+    ExpectedServerProof: '' // base64 encoded expected server proof
 };
 ```
 
-where `parameters` should be sent in the auth request and the returned `ServerProof` should be validated against the expected server proof.
+where `ClientEphemal` and `ClientProof` should be sent in the auth request and the `ExpectedServerProof` should be validated against the received `ServerProof`.
 
 ### getRandomSrpVerifier(data, credentials, [authVersion]);
 where `data` is an object containing the result of the `auth/modulus` call.
