@@ -4,6 +4,10 @@
 
 ProtonMail SRP and auth library
 
+## Dependencies
+
+This library depends on [`pmcrypto`](https://github.com/ProtonMail/pmcrypto). It is required as a `peerDependency` and it must be initialized first.
+
 ## API
 
 ### SRP
