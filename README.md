@@ -47,7 +47,7 @@ it returns a `Promise` resolving to a `result` containing:
 };
 ```
 
-where `ClientEphemal` and `ClientProof` should be sent in the auth request and the `ExpectedServerProof` should be validated against the received `ServerProof`.
+where `ClientEphemeral` and `ClientProof` should be sent in the auth request and the `ExpectedServerProof` should be validated against the received `ServerProof`.
 
 ### getRandomSrpVerifier(data, credentials, [authVersion]);
 where `data` is an object containing the result of the `auth/modulus` call.
