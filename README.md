@@ -41,9 +41,10 @@ if an optional `authVersion` is specified, it will override whatever version is 
 it returns a `Promise` resolving to a `result` containing:
 ```js
 {
-    ClientEphemeral: '', //  base64 encoded client ephmeral
-    ClientProof: '', // base64 encoded client proof
-    ExpectedServerProof: '' // base64 encoded expected server proof
+    clientEphemeral: '', //  base64 encoded client ephmeral
+    clientProof: '', // base64 encoded client proof
+    expectedServerProof: '' // base64 encoded expected server proof
+    sharedSession: '' // uint8 array with the shared session
 };
 ```
 
@@ -70,10 +71,9 @@ if an optional `authVersion` is specified, it will use that instead of the curre
 it returns a `Promise` resolving to a `result` containing:
 ```js
 {
-    Version: 4, // auth version used
-    ModulusID: '',, // same modulus id
-    Salt: '', // base 64 encoded salt
-    Verifier: '' // base 64 encoded verifier
+    version: 4, // auth version used
+    salt: '', // base 64 encoded salt
+    verifier: '' // base 64 encoded verifier
 };
 ```
 
