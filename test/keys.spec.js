@@ -14,4 +14,20 @@ describe('passwords', () => {
         const keyp = await computeKeyPassword('hello', 'ajHO5Xshwb9h9DcAExIkbg==');
         assert.strictEqual(keyp, 'vQp4euSvXpBygefcOfyhCbWmFgFmgeW');
     });
+
+    it('should throw without a salt', async () => {
+        const promise = computeKeyPassword('hello');
+        await assert.rejects(promise, {
+            name: 'Error',
+            message: 'Password and salt required.'
+        });
+    });
+
+    it('should throw without a password', async () => {
+        const promise = computeKeyPassword(undefined, 'ajHO5Xshwb9h9DcAExIkbg==');
+        await assert.rejects(promise, {
+            name: 'Error',
+            message: 'Password and salt required.'
+        });
+    });
 });
