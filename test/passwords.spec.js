@@ -1,4 +1,5 @@
 import { describe, it } from 'mocha';
+import { binaryStringToArray } from 'pmcrypto';
 import assert from 'assert';
 
 import './setup';
@@ -6,8 +7,8 @@ import { hashPassword, expandHash } from '../lib/passwords';
 import { hashedResult4, hashedResult0, hashedResult2, watResult } from './passwords.data';
 
 describe('passwords', () => {
-    it('should expand hash', async () => {
-        const result = await expandHash('wat');
+    it('should expand a hash', async () => {
+        const result = await expandHash(binaryStringToArray('wat'));
         assert.deepStrictEqual(result, watResult);
     });
 
