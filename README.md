@@ -48,7 +48,7 @@ it returns a `Promise` resolving to a `result` containing:
 };
 ```
 
-where `ClientEphemeral` and `ClientProof` should be sent in the auth request and the `ExpectedServerProof` should be validated against the received `ServerProof`.
+where `clientEphemeral` and `clientProof` should be sent in the auth request and the `expectedServerProof` should be validated against the received `ServerProof`.
 
 ### getRandomSrpVerifier(data, credentials, [authVersion]);
 where `data` is an object containing the result of the `auth/modulus` call.
@@ -91,10 +91,10 @@ Returns the key password given a plaintext `password` and `salt`.
 ### generateKeySalt()
 Returns a base 64 encoded string of 16 random bytes.
 
-### getAuthVersionWithFallback(credentials, data, [lastAuthVersion])
+### getAuthVersionWithFallback(data, username, [lastAuthVersion])
 Get the auth version to use for the next attempt.
 
-`credentials` is the entered credentials, `data` is an object containing the result of the `auth/info` call, and `lastAuthVersion` the last used auth version or `undefined`.
+`data` is an object containing the result of the `auth/info` call, `username` is the entered username, and `lastAuthVersion` the last used auth version or `undefined`.
 Returns an object containing what auth version to use and if all version have been exhausted.
 ```js
 {
