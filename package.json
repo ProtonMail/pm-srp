@@ -1,6 +1,6 @@
 {
   "name": "pm-srp",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "ProtonMail SRP and auth library",
   "main": "lib/index.js",
   "module": "lib/module.js",
